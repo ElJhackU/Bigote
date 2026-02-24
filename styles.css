@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(15, 17, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.mustache {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative; 
+    color: #90b956;
+    /* Sombras actualizadas: se redujo el spread negativo para agrandar el aro */
+    box-shadow: 
+        0px -80px 0 -15px #90b956,            /* Ojo izquierdo (Pupila) */
+        0px -80px 0 9px rgb(15, 17, 26),      /* Fondo monóculo (Agrandado) */
+        0px -80px 0 15px #90b956,             /* Aro exterior monóculo (Agrandado) */
+        120px -80px 0 -15px #90b956,          /* Ojo derecho */
+        40px 40px 0 0 currentColor, 
+        80px 40px 0 0 currentColor;
+    transform: translateX(-85px) translateY(-40px);
+}
+
+.mustache::before {
+    content: "";
+    position: absolute;
+    left: 100px; 
+    top: -40px; 
+    width: 50px;
+    height: 50px;
+    border-bottom: solid 50px currentColor;
+    border-radius: 0 0 0 100%;
+    transform: rotate(-40deg); 
+    transform-origin: right 210px;
+}
+
+.mustache::after {
+    content: "";
+    position: absolute;
+    left: 20px; 
+    top: -40px; 
+    width: 50px;
+    height: 50px;
+    border-bottom: solid 50px currentColor;
+    border-radius: 0 0 100% 0;
+    transform: rotate(40deg);
+    transform-origin: left 210px;
+}
